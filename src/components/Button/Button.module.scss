@@ -1,0 +1,13 @@
+@import '../../styles/variables';
+
+.button {
+  height: 40px;
+  padding: 10px;
+  background-color: $gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
