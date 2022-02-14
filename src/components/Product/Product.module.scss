@@ -1,0 +1,50 @@
+@import '../../styles/variables';
+
+.product {
+  display: flex;
+  gap: 30px;
+
+  &__image {
+    background-color: #fff;
+    height: 370px;
+    width: 370px;
+    padding: 51px 30px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 770px;
+  }
+
+  &__title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  &__price {
+    background-color: $gray;
+    width: 180px;
+    padding: 6px;
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  &__description {
+    color: #fff;
+    font-size: 16px;
+    height: 190px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+  }
+}

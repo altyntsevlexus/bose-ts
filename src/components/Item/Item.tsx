@@ -1,10 +1,12 @@
 import { useState } from 'react';
-import styled from './Item.module.scss';
-import Counter from '../Counter';
+import { Link } from 'react-router-dom';
+import { ProductType } from '../../types';
 
+import Counter from '../Counter';
 import Dropdown from '../Dropdown';
 import Button from '../Button';
-import { ProductType } from '../../types';
+
+import styled from './Item.module.scss';
 
 type ItemProps = {
   product: ProductType;
@@ -15,8 +17,8 @@ const Item = ({ product }: ItemProps) => {
   const [color, setColor] = useState<string>(product.colors[0]);
 
   const addToCart = () => {
-    setAmount(1);
     console.log(product.title, amount * product.price, color);
+    setAmount(1);
   };
 
   return (
@@ -34,8 +36,10 @@ const Item = ({ product }: ItemProps) => {
         </div>
       </div>
       <div className={styled.item__footer}>
-        <p className={styled.item__name}>{product.title}</p>
-        <p className={styled.item__price}>{product.price}</p>
+        <Link to={product.productId}>
+          <p className={styled.item__name}>{product.title}</p>
+        </Link>
+        <p className={styled.item__price}>{product.price} грн.</p>
       </div>
     </div>
   );

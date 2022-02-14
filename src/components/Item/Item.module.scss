@@ -9,6 +9,9 @@
   &__image {
     position: relative;
     background-color: $gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 270px;
     padding: 10px;
 
@@ -35,6 +38,7 @@
   }
 
   &__price {
+    font-weight: 500;
     align-self: flex-end;
   }
 

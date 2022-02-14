@@ -30,4 +30,8 @@
     color: $dark-gray;
     font-weight: 700;
   }
+
+  &__hidden {
+    visibility: hidden;
+  }
 }

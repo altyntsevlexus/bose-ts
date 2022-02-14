@@ -1,23 +1,28 @@
+import { Link } from 'react-router-dom';
 import styled from './Category.module.scss';
 
 import arrow from '../../images/arrow.svg';
-import test from '../../images/test.png';
+import { CategoryType } from '../../types';
 
-const Category = () => {
+type CategoryProps = {
+  category: CategoryType;
+};
+
+const Category = ({ category }: CategoryProps) => {
   return (
     <div className={styled.category}>
       <div className={styled.category__image}>
-        <img src={test} alt="product" />
+        <img src={category.image} alt="product" />
       </div>
       <div className={styled.category__footer}>
-        <p className={styled.category__text}>Наушники</p>
-        <div className={styled['category__arrow-box']}>
+        <p className={styled.category__text}>{category.title}</p>
+        <Link className={styled['category__arrow-box']} to={category.link}>
           <img
             src={arrow}
             alt="arrow-right"
             className={styled.category__arrow}
           />
-        </div>
+        </Link>
       </div>
     </div>
   );
