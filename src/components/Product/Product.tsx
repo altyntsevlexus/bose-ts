@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Slider from 'react-slick';
 import { ProductType } from '../../types';
+import { useAppDispatch } from '../../hooks';
+import { addItem } from '../../redux/cartSlice';
 
 import Button from '../Button';
 import Counter from '../Counter';
@@ -18,15 +20,26 @@ const Product = ({ product }: ProductProps) => {
   const [amount, setAmount] = useState<number>(1);
   const [color, setColor] = useState<string>(product.colors[0]);
 
+  const dispatch = useAppDispatch();
+
   const addToCart = () => {
-    console.log(product.title, amount * product.price, color);
+    dispatch(
+      addItem({
+        title: product.title,
+        price: product.price,
+        productId: product.productId,
+        quantity: amount,
+        color,
+        image: product.images[0],
+      }),
+    );
     setAmount(1);
   };
 
   return (
     <div className={styled.product}>
       <div className={styled.product__image}>
-        <Slider dots infinite speed={500} adaptiveHeight>
+        <Slider dots infinite speed={500}>
           {product.images.map((image) => {
             return <img src={image} alt="product" key={image} />;
           })}

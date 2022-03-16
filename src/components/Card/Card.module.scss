@@ -1,6 +1,6 @@
 @import '../../styles/variables';
 
-.item {
+.card {
   display: flex;
   flex-direction: column;
   max-width: 270px;
@@ -15,7 +15,7 @@
     height: 270px;
     padding: 10px;
 
-    &:hover .item__hover {
+    &:hover .card__hover {
       display: flex;
     }
   }
@@ -29,7 +29,7 @@
     padding: 10px;
   }
 
-  &__name {
+  &__title {
     max-width: 220px;
     width: 100%;
     color: $dark-gray;

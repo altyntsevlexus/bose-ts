@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ProductType } from '../../types';
-import Item from '../../components/Item';
-import styled from './Products.module.scss';
+import Card from '../../components/Card';
+import styled from './Catalog.module.scss';
 import Title from '../../components/Title';
 import { getProducts, getTitle } from '../../api';
 
-const Products = () => {
+const Catalog = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
   const [title, setTitle] = useState<string>('');
 
@@ -52,11 +52,11 @@ const Products = () => {
       <Title value={title} />
       <div className={styled.products}>
         {products.map((product) => {
-          return <Item key={product.title} product={product} />;
+          return <Card key={product.title} product={product} />;
         })}
       </div>
     </>
   );
 };
 
-export default Products;
+export default Catalog;

@@ -1,12 +1,14 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Categories from '../pages/Categories';
 import SingleProduct from '../pages/SingleProduct';
-import Products from '../pages/Products/Products';
+import Products from '../pages/Catalog';
+import Cart from '../pages/Cart';
 
 const ROUTER_CONFIG = [
   { path: '/categories', element: Categories },
   { path: '/categories/:category', element: Products },
   { path: '/categories/:category/:id', element: SingleProduct },
+  { path: '/cart', element: Cart },
 ];
 
 const AppRouter = () => {
@@ -15,13 +17,9 @@ const AppRouter = () => {
       <Routes>
         <Route path="/" element={<Navigate to="/categories" />} />
         {ROUTER_CONFIG.map((route) => (
-          <Route
-            key={route.path}
-            path={route.path}
-            element={<route.element />}
-          />
+          <Route key={route.path} path={route.path} element={route.element} />
         ))}
-        <Route path="*" element={<Navigate to="/categories" />} />
+        <Route path="*" element={<Navigate to="/404" />} />
       </Routes>
     </main>
   );

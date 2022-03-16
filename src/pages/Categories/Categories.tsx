@@ -5,7 +5,7 @@ import Category from '../../components/Category';
 import Title from '../../components/Title';
 import { getCategories } from '../../api';
 
-const Products = () => {
+const Categories = () => {
   const [categories, setCategories] = useState<CategoryType[]>([]);
 
   useEffect(() => {
@@ -38,4 +38,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Categories;
