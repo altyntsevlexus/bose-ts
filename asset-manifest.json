@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/bose-ts/static/css/main.2bc50e96.css",
+    "main.js": "/bose-ts/static/js/main.afd8996c.js",
+    "static/media/Montserrat-Regular.ttf": "/bose-ts/static/media/Montserrat-Regular.3cd786652b8a2e9d41f2.ttf",
+    "static/media/Montserrat-Bold.ttf": "/bose-ts/static/media/Montserrat-Bold.079ca05d3ded9bc107ab.ttf",
+    "static/media/Montserrat-Medium.ttf": "/bose-ts/static/media/Montserrat-Medium.e2d60bc49517598c0ce8.ttf",
+    "static/media/logo.svg": "/bose-ts/static/media/logo.92b9a15e89de61428c9f98f7633a45eb.svg",
+    "static/media/slick.svg": "/bose-ts/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/bose-ts/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/bose-ts/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/cart.svg": "/bose-ts/static/media/cart.3fac54a594442d5f4222a060b94ee28e.svg",
+    "static/media/slick.woff": "/bose-ts/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/bose-ts/index.html",
+    "static/media/arrow.svg": "/bose-ts/static/media/arrow.b70ef6de180515546ede388eb4d9bdac.svg",
+    "static/media/arrow-min.svg": "/bose-ts/static/media/arrow-min.9c74330c5a26b2fff1f697321524bad0.svg",
+    "main.2bc50e96.css.map": "/bose-ts/static/css/main.2bc50e96.css.map",
+    "main.afd8996c.js.map": "/bose-ts/static/js/main.afd8996c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2bc50e96.css",
+    "static/js/main.afd8996c.js"
+  ]
+}
