@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/bose-ts/static/css/main.2366b936.css",
+    "main.css": "/bose-ts/static/css/main.e0583600.css",
     "main.js": "/bose-ts/static/js/main.9fd40774.js",
     "static/media/Montserrat-Regular.ttf": "/bose-ts/static/media/Montserrat-Regular.3cd786652b8a2e9d41f2.ttf",
     "static/media/Montserrat-Bold.ttf": "/bose-ts/static/media/Montserrat-Bold.079ca05d3ded9bc107ab.ttf",
@@ -14,11 +14,11 @@
     "index.html": "/bose-ts/index.html",
     "static/media/arrow.svg": "/bose-ts/static/media/arrow.b70ef6de180515546ede388eb4d9bdac.svg",
     "static/media/arrow-min.svg": "/bose-ts/static/media/arrow-min.9c74330c5a26b2fff1f697321524bad0.svg",
-    "main.2366b936.css.map": "/bose-ts/static/css/main.2366b936.css.map",
+    "main.e0583600.css.map": "/bose-ts/static/css/main.e0583600.css.map",
     "main.9fd40774.js.map": "/bose-ts/static/js/main.9fd40774.js.map"
   },
   "entrypoints": [
-    "static/css/main.2366b936.css",
+    "static/css/main.e0583600.css",
     "static/js/main.9fd40774.js"
   ]
 }
