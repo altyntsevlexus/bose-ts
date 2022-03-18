@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getProduct } from '../../api';
+import { getProduct, herokuURL } from '../../api';
 import Product from '../../components/Product';
 import { ProductType } from '../../types';
 
@@ -21,7 +21,7 @@ const SingleProduct = () => {
         price: productData.price,
         colors: productData.colors,
         images: productData.images.data.map(
-          (image: any) => `http://localhost:1337${image.attributes.url}`,
+          (image: any) => `${herokuURL}${image.attributes.url}`,
         ),
         productId: productData.productId.toString(),
       });

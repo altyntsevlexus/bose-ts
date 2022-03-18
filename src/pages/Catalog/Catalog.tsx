@@ -4,7 +4,7 @@ import { ProductType } from '../../types';
 import Card from '../../components/Card';
 import styled from './Catalog.module.scss';
 import Title from '../../components/Title';
-import { getProducts, getTitle } from '../../api';
+import { getProducts, getTitle, herokuURL } from '../../api';
 
 const Catalog = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
@@ -23,7 +23,7 @@ const Catalog = () => {
           colors: product.attributes.colors,
           price: product.attributes.price,
           images: product.attributes.images.data.map(
-            (image: any) => `http://localhost:1337${image.attributes.url}`,
+            (image: any) => `${herokuURL}${image.attributes.url}`,
           ),
           productId: product.attributes.productId.toString(),
         };

@@ -3,7 +3,7 @@ import { CategoryType } from '../../types';
 import styled from './Categories.module.scss';
 import Category from '../../components/Category';
 import Title from '../../components/Title';
-import { getCategories } from '../../api';
+import { getCategories, herokuURL } from '../../api';
 
 const Categories = () => {
   const [categories, setCategories] = useState<CategoryType[]>([]);
@@ -16,7 +16,7 @@ const Categories = () => {
         return {
           title: category.attributes.title,
           link: category.attributes.link,
-          image: `http://localhost:1337${category.attributes.image.data.attributes.url}`,
+          image: `${herokuURL}${category.attributes.image.data.attributes.url}`,
         };
       });
 
