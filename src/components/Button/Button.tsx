@@ -1,15 +1,20 @@
 import styled from './Button.module.scss';
 
 type ButtonProps = {
-  handleClick: () => void;
+  handleClick?: () => void;
+  value: string;
 };
 
-const Button = ({ handleClick }: ButtonProps) => {
+const Button = ({ handleClick, value }: ButtonProps) => {
   return (
     <button type="button" className={styled.button} onClick={handleClick}>
-      Добавить в корзину
+      {value}
     </button>
   );
+};
+
+Button.defaultProps = {
+  handleClick: () => null,
 };
 
 export default Button;

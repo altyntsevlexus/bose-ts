@@ -1,6 +1,14 @@
-.products {
-  display: flex;
-  gap: 30px;
-  align-items: center;
-  flex-direction: column;
+.cart {
+  &__products {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__empty {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
 }

@@ -16,7 +16,7 @@ const CartProduct = ({ product }: CartProductProps) => {
   return (
     <div className={styled.cartProduct}>
       <div className={styled.cartProduct__image}>
-        <img src={product.image} alt="" />
+        <img src={product.image} alt="product" />
       </div>
       <div className={styled.cartProduct__info}>
         <div className={styled.cartProduct__header}>

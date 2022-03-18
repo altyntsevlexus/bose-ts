@@ -45,7 +45,7 @@ const Card = ({ product }: CardProps) => {
             setSelected={setColor}
             options={product.colors}
           />
-          <Button handleClick={addToCart} />
+          <Button handleClick={addToCart} value="Добавить в корзину" />
         </div>
       </div>
       <div className={styled.card__footer}>
