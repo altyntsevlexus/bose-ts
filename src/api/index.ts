@@ -1,10 +1,8 @@
 import axios from 'axios';
 import qs from 'qs';
 
-export const herokuURL = 'https://floating-brook-88017.herokuapp.com';
-
 const boseApi = axios.create({
-  baseURL: `${herokuURL}/api/`,
+  baseURL: 'https://floating-brook-88017.herokuapp.com/api/',
 });
 
 export const getCategories = async () => {
