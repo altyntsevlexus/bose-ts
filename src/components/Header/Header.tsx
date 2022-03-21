@@ -16,14 +16,14 @@ const Header = () => {
     <header className={styled.header}>
       <div className="wrapper">
         <nav className={styled.header__flexbox}>
-          {pathname === '/categories' ? (
+          {pathname === '/login' ? (
             <img src={arrow} alt="back" className={styled.header__hidden} />
           ) : (
             <Link to={back}>
               <img src={arrow} alt="back" />
             </Link>
           )}
-          <Link to="/">
+          <Link to="/categories">
             <img src={logo} alt="logo" />
           </Link>
           <Link to="/cart">

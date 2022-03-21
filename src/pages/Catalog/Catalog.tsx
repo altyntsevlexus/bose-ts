@@ -1,21 +1,23 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { ProductType } from '../../types';
 import Card from '../../components/Card';
 import styled from './Catalog.module.scss';
 import Title from '../../components/Title';
 import { getProducts, getTitle } from '../../api';
+import Loader from '../../components/Loader';
 
 const Catalog = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
   const [title, setTitle] = useState<string>('');
 
   const { category } = useParams();
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    const handleProducts = async () => {
-      const response = await getProducts(category!);
+  const handleProducts = async () => {
+    const response = await getProducts(category!);
 
+    if (response.data.data.length > 0) {
       const productsArr = response.data.data.map((product: any) => {
         return {
           title: product.attributes.title,
@@ -30,30 +32,35 @@ const Catalog = () => {
       });
 
       setProducts(productsArr);
-    };
+    } else {
+      navigate('/');
+    }
+  };
 
-    handleProducts();
-  }, []);
+  const handleTitle = async () => {
+    const response = await getTitle(category!);
+
+    const result = response.data.data[0]?.attributes.title || 'Каталог';
+
+    setTitle(result);
+  };
 
   useEffect(() => {
-    const handleTitle = async () => {
-      const response = await getTitle(category!);
-
-      const result = response.data.data[0].attributes.title || 'Каталог';
-
-      setTitle(result);
-    };
-
     handleTitle();
+    handleProducts();
   }, []);
 
   return (
     <>
       <Title value={title} />
-      <div className={styled.products}>
-        {products.map((product) => {
-          return <Card key={product.title} product={product} />;
-        })}
+      <div className={styled.catalog}>
+        {products.length > 0 ? (
+          products.map((product) => {
+            return <Card key={product.title} product={product} />;
+          })
+        ) : (
+          <Loader />
+        )}
       </div>
     </>
   );

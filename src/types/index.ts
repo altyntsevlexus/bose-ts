@@ -21,3 +21,20 @@ export type CategoryType = {
   image: string;
   link: string;
 };
+
+export type UserType = {
+  data: {
+    jwt: string;
+    id: number;
+    email: string;
+    username: string;
+    blocked: boolean;
+    confirmed: boolean;
+  };
+  loading: boolean;
+};
+
+export type CredentialsType = {
+  identifier: string;
+  password: string;
+};

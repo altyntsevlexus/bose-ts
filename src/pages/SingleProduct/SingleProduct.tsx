@@ -1,16 +1,19 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { getProduct } from '../../api';
+import Loader from '../../components/Loader';
 import Product from '../../components/Product';
 import { ProductType } from '../../types';
+import styled from './SingleProduct.module.scss';
 
 const SingleProduct = () => {
   const [product, setProduct] = useState<ProductType>();
 
   const { id } = useParams();
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    const handleProduct = async () => {
+  const handleProduct = async () => {
+    try {
       const response = await getProduct(id!);
 
       const productData = response.data.data[0].attributes;
@@ -25,12 +28,20 @@ const SingleProduct = () => {
         ),
         productId: productData.productId.toString(),
       });
-    };
+    } catch {
+      navigate('/');
+    }
+  };
 
+  useEffect(() => {
     handleProduct();
   }, []);
 
-  return product ? <Product product={product} /> : <p>Loading ...</p>;
+  return (
+    <div className={styled.product}>
+      {product ? <Product product={product} /> : <Loader />}
+    </div>
+  );
 };
 
 export default SingleProduct;

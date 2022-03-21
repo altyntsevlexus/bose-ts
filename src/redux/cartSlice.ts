@@ -12,11 +12,7 @@ export const cartSlice = createSlice({
   reducers: {
     delItem: (state, { payload }: PayloadAction<CartProductType>) => {
       state.splice(
-        state.findIndex(
-          (item) =>
-            item.productId === payload.productId &&
-            item.color === payload.color,
-        ),
+        state.findIndex((item) => compare(item, payload)),
         1,
       );
     },
@@ -42,18 +38,17 @@ export const cartSlice = createSlice({
         product.quantity -= 1;
       } else {
         state.splice(
-          state.findIndex(
-            (item) =>
-              item.productId === payload.productId &&
-              item.color === payload.color,
-          ),
+          state.findIndex((item) => compare(item, payload)),
           1,
         );
       }
     },
+
+    empty: () => initialState,
   },
 });
 
-export const { delItem, addItem, increment, decrement } = cartSlice.actions;
+export const { delItem, addItem, increment, decrement, empty } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;
