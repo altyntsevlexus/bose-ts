@@ -8,9 +8,9 @@ import Login from '../pages/Login';
 import { useAppSelector } from '../hooks';
 
 const ROUTER_CONFIG = [
-  { path: '/', element: <Navigate to="/categories" /> },
+  { path: '/', element: <Navigate to="/categories" replace /> },
   { path: '/404', element: <Title value="404" /> },
-  { path: '*', element: <Navigate to="/404" /> },
+  { path: '*', element: <Navigate to="/404" replace /> },
 ];
 
 const PRIVATE_ROUTE_CONFIG = [
@@ -33,12 +33,12 @@ const AppRouter = () => {
           <Route
             key={route.path}
             path={route.path}
-            element={token ? route.element : <Navigate to="/login" />}
+            element={token ? route.element : <Navigate to="/login" replace />}
           />
         ))}
         <Route
           path="/login"
-          element={token ? <Navigate to="/categories" /> : <Login />}
+          element={token ? <Navigate to="/categories" replace /> : <Login />}
         />
       </Routes>
     </main>
