@@ -16,7 +16,7 @@ const Header = () => {
     <header className={styled.header}>
       <div className="wrapper">
         <nav className={styled.header__flexbox}>
-          {pathname === '/login' ? (
+          {pathname === '/login' || pathname === '/categories' ? (
             <img src={arrow} alt="back" className={styled.header__hidden} />
           ) : (
             <Link to={back}>
