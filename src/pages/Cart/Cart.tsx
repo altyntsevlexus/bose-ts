@@ -11,10 +11,10 @@ const Catalog = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const overall = cart.reduce(
-    (initValue, item) => initValue + item.price * item.quantity,
-    0,
-  );
+  const overall = cart
+    .reduce((initValue, item) => initValue + item.price * item.quantity, 0)
+    .toLocaleString()
+    .replace(/,/g, ' ');
 
   const handleOrder = () => {
     alert('Заказ успешно оформлен');
@@ -37,12 +37,16 @@ const Catalog = () => {
             );
           })}
           <div className={styled.cart__overall}>
-            <p>
-              Стоимость заказа:{' '}
-              <span className={styled.cart__amount}>{overall}</span>
-            </p>
+            <span>Стоимость заказа:</span>
+            <span className={styled.cart__amount}>
+              {overall.toLocaleString()} грн.
+            </span>
+            <Button
+              value="Оформить заказ"
+              handleClick={handleOrder}
+              color="dark"
+            />
           </div>
-          <Button value="Оформить заказ" handleClick={handleOrder} />
         </div>
       </>
     );
@@ -50,7 +54,6 @@ const Catalog = () => {
 
   return (
     <>
-      {' '}
       <Title value="Корзина пустая :(" />
       <div className={styled.cart}>
         <Link to="/">

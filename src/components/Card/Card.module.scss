@@ -32,9 +32,12 @@
   &__title {
     max-width: 220px;
     width: 100%;
-    color: $dark-gray;
     font-weight: 700;
     align-self: flex-start;
+
+    &:hover {
+      color: $dark-gray;
+    }
   }
 
   &__price {

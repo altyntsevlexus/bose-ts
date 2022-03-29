@@ -1,8 +1,7 @@
 @import '../../styles/variables';
 
 .button {
-  padding: 10px;
-  background-color: $gray;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,4 +9,15 @@
   border: none;
   font-weight: 500;
   cursor: pointer;
+
+  &--c {
+    &--light {
+      background-color: $gray;
+    }
+
+    &--dark {
+      background-color: $black;
+      color: #fff;
+    }
+  }
 }
