@@ -45,9 +45,16 @@ const Catalog = () => {
     setTitle(result);
   };
 
+  const cleanup = () => {
+    setProducts([]);
+    setTitle('');
+  };
+
   useEffect(() => {
     handleTitle();
     handleProducts();
+
+    return () => cleanup();
   }, []);
 
   return (

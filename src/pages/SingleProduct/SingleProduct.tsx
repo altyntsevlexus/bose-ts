@@ -33,8 +33,14 @@ const SingleProduct = () => {
     }
   };
 
+  const cleanup = () => {
+    setProduct(undefined);
+  };
+
   useEffect(() => {
     handleProduct();
+
+    return () => cleanup();
   }, []);
 
   return (

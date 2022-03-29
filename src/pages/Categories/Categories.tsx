@@ -23,8 +23,14 @@ const Categories = () => {
     setCategories(categoriesData);
   };
 
+  const cleanup = () => {
+    setCategories([]);
+  };
+
   useEffect(() => {
     handleCategories();
+
+    return () => cleanup();
   }, []);
 
   return (
