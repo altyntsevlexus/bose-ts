@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { loginUser } from '../api';
-import { CredentialsType, UserPayloadType, UserType } from '../types';
+import { CredentialsType, UserResponseType, UserType } from '../types';
 
 const initialState = <UserType>{
   data: {},
@@ -18,7 +18,7 @@ interface ValidationErrors {
 }
 
 export const userLogin = createAsyncThunk<
-  UserPayloadType,
+  UserResponseType,
   CredentialsType,
   {
     rejectValue: ValidationErrors;

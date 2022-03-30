@@ -35,7 +35,7 @@ export type UserType = {
   loading: boolean;
 };
 
-export type UserPayloadType = {
+export type UserResponseType = {
   user: {
     id: number;
     email: string;
