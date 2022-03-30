@@ -49,13 +49,13 @@ const Login = () => {
         <FieldGroup
           name="email"
           placeholder="Введите электронную почту"
-          label="Логин"
+          label="Логин (test@mail.com)"
           type="email"
         />
         <FieldGroup
           name="password"
           placeholder="Введите пароль"
-          label="Пароль"
+          label="Пароль (12345678)"
           type="password"
         />
         {loading ? <Loader /> : <Submit value="Войти" />}
