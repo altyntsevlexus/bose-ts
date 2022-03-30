@@ -1,20 +1,36 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { loginUser } from '../api';
-import { CredentialsType, UserType } from '../types';
+import { CredentialsType, UserPayloadType, UserType } from '../types';
 
 const initialState = <UserType>{
   data: {},
+  error: null,
   loading: false,
 };
 
-export const userLogin = createAsyncThunk(
-  'user/login',
-  async (credentials: CredentialsType) => {
+interface ValidationErrors {
+  error: {
+    message: string;
+    name: string;
+    status: number;
+  };
+}
+
+export const userLogin = createAsyncThunk<
+  UserPayloadType,
+  CredentialsType,
+  {
+    rejectValue: ValidationErrors;
+  }
+>('user/login', async (credentials, { rejectWithValue }) => {
+  try {
     const res = await loginUser(credentials);
     return res;
-  },
-);
+  } catch (err: any) {
+    return rejectWithValue(err.response.data);
+  }
+});
 
 export const userSlice = createSlice({
   name: 'user',
@@ -37,10 +53,12 @@ export const userSlice = createSlice({
       };
       state.loading = false;
     });
-    builder.addCase(userLogin.rejected, () => {
-      // eslint-disable-next-line no-param-reassign
-      console.log('error');
-      return initialState;
+    builder.addCase(userLogin.rejected, (state, { payload }) => {
+      state.loading = false;
+
+      if (payload) {
+        state.error = payload.error.message;
+      }
     });
   },
 });

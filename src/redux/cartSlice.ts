@@ -36,11 +36,6 @@ export const cartSlice = createSlice({
       const product = state.find((item) => compare(item, payload))!;
       if (product.quantity > 1) {
         product.quantity -= 1;
-      } else {
-        state.splice(
-          state.findIndex((item) => compare(item, payload)),
-          1,
-        );
       }
     },
 

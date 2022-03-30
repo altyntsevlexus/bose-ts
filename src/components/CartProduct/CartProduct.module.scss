@@ -64,9 +64,14 @@
     align-items: center;
     justify-content: center;
     outline: none;
-    border: solid $dark-gray;
+    border: solid $dark-gray 1.5px;
     text-align: center;
     cursor: pointer;
+
+    &:disabled {
+      cursor: initial;
+      border: solid $dark-gray 0.5px;
+    }
   }
 
   &__inc {

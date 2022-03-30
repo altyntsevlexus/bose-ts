@@ -23,6 +23,7 @@ export type CategoryType = {
 };
 
 export type UserType = {
+  error: string | null | undefined;
   data: {
     jwt: string;
     id: number;
@@ -34,7 +35,23 @@ export type UserType = {
   loading: boolean;
 };
 
+export type UserPayloadType = {
+  user: {
+    id: number;
+    email: string;
+    username: string;
+    blocked: boolean;
+    confirmed: boolean;
+  };
+  jwt: string;
+};
+
 export type CredentialsType = {
   identifier: string;
+  password: string;
+};
+
+export type LoginValues = {
+  email: string;
   password: string;
 };

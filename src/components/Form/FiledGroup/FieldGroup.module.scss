@@ -1,0 +1,28 @@
+@import '../../../styles/variables';
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+
+  &__input {
+    background-color: $dark-gray;
+    border: none;
+    padding: 15px 30px;
+    color: #fff;
+    outline: none;
+  }
+
+  &__label {
+    font-weight: 900;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px $dark-gray inset !important;
+    -webkit-text-fill-color: #fff !important;
+  }
+}

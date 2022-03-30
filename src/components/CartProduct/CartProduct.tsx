@@ -46,6 +46,7 @@ const CartProduct = ({ product }: CartProductProps) => {
                   type="button"
                   onClick={() => dispatch(decrement(product))}
                   className={styled.cartProduct__button}
+                  disabled={product.quantity === 1}
                 >
                   <img src={arrow} alt="dec" />
                 </button>

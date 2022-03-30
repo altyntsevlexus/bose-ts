@@ -14,17 +14,24 @@ import storage from 'redux-persist/lib/storage';
 import cartReducer from './cartSlice';
 import userReducer from './userSlice';
 
-const persistConfig = {
+const rootPersistConfig = {
   key: 'root',
   storage,
+  blacklist: ['user'],
+};
+
+const userPersistConfig = {
+  key: 'user',
+  storage,
+  blacklist: ['error', 'loading'],
 };
 
 const rootReducer = combineReducers({
   cart: cartReducer,
-  user: userReducer,
+  user: persistReducer(userPersistConfig, userReducer),
 });
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const persistedReducer = persistReducer(rootPersistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: persistedReducer,

@@ -1,0 +1,14 @@
+@import '../../../styles/variables';
+
+.submit {
+  padding: 15px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: $dark-gray;
+  color: #fff;
+}
